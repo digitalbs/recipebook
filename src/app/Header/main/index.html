@@ -1,0 +1,19 @@
+<md-toolbar class="app-header">
+    <div class="md-toolbar-tools" ng-cloak>
+      <span ui-sref="app.recipes">{{ "app.title" | translate }} <i class="material-icons">book</i></span>
+      <!-- fill up the space between left and right area -->
+      <span flex></span>
+        <md-button ng-if="!ctrl.isAuthenticated" ui-sref="app.login">{{"button.login" | translate}}</md-button>
+        <span ng-if="ctrl.isAuthenticated">{{ ctrl.username }}</span>
+        <md-menu ng-if="ctrl.isAuthenticated">
+            <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button" aria-label="Account">
+                <i class="material-icons">account_circle</i>
+            </md-button>
+            <md-menu-content width="4">
+                <md-menu-item>
+                    <md-button ng-click="ctrl.logout()">{{"button.logout" | translate}}</md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+    </div>
+</md-toolbar>

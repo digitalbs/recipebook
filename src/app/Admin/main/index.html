@@ -1,0 +1,17 @@
+<h2>{{admin.title}}</h2>
+<md-toolbar md-scroll-shrink>
+    <div class="md-toolbar-tools">Users</div>
+</md-toolbar>
+<md-content style="height: 600px;" md-theme="altTheme">
+    <section>
+          <md-list layout-padding>
+            <md-list-item class="md-3-line" ng-repeat="user in ctrl.users">
+                <h3 style="width: 300px;">{{user.username}}</h3>
+                <p style="width: 500px;">{{user.teamname}}</p>
+                <p>Is admin: {{user.admin}}</p>
+                <p>Votes: {{user.votes}}</p>
+                <p><md-button ng-click="user.$delete({id: user._id}); ctrl.users.splice($index,1)">x</md-button></p>
+            </md-list-item>
+          </md-list>
+        </section>
+</md-content>

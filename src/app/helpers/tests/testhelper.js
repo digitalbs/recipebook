@@ -1,5 +1,5 @@
 (function () {
-    "use strict";
+    'use strict';
 
     let tests = [];
     for (let file in window.__karma__.files) {
@@ -12,15 +12,16 @@
 
     let smUtil = {};
 
-    smUtil.overrideDirective = function overrideDirective ($provide, name, options) {
+    smUtil.overrideDirective = function overrideDirective($provide, name, options) {
         let serviceName;
         if (options === null) {
             options = {};
         }
         serviceName = name + 'Directive';
-        return $provide.factory(serviceName, function () {
+        return $provide.factory(serviceName, () => {
             let directive;
             directive = angular.copy(options);
+
             if (directive.priority === null) {
                 directive.priority = 0;
             }
@@ -37,13 +38,13 @@
 
     window.smUtil = smUtil;
 
-    function describeEach (description, cases, callback) {
+    function describeEach(description, cases, callback) {
         let index = 0;
-        cases.forEach(function (value) {
+        cases.forEach(value => {
             let descriptionEdit = description.replace(/\{value\}/gi, String(value));
             descriptionEdit = descriptionEdit.replace(/\{index\}/gi, index);
 
-            describe(descriptionEdit, function () {
+            describe(descriptionEdit, () => {
                 callback(value, index);
             });
             index++;

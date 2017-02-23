@@ -1,17 +1,18 @@
+'use strict';
+
 module.exports = {
-    getAppEntry: function(config) {
+    getAppEntry(config) {
         return [
             //Polyfills
             'babel-polyfill',
-            'event-source/global',
 
             //App Entry
-            config.srcPath + '/css/sass/app.scss',
+            config.srcPath + '/sass/app.scss',
             config.srcPath + '/bootstrap.js'
         ];
     },
-    getLoaders: function(config, ExtractTextPlugin) {
-        var babelLoaderPath = (config.testPath) ? config.testPath : config.srcPath;
+    getLoaders(config, ExtractTextPlugin) {
+        let babelLoaderPath = (config.testPath) ? config.testPath : config.srcPath;
 
         return [{
                 test: config.transpilerTarget,
@@ -36,10 +37,10 @@ module.exports = {
                 loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader?sourceMap')
             }, {
                 test: /\.jpg$/,
-                loader: "file-loader"
+                loader: 'file-loader'
             }, {
                 test: /\.png$/,
-                loader: "url-loader?mimetype=image/png"
+                loader: 'url-loader?mimetype=image/png'
             }, {
                 test: /\.(woff$|woff2)/,
                 include: config.srcPath,
@@ -52,13 +53,13 @@ module.exports = {
             //font-awesome specific loading
             {
                 test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                loader: "url-loader?limit=10000&mimetype=application/font-woff"
+                loader: 'url-loader?limit=10000&mimetype=application/font-woff'
             }, {
                 test: /\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                loader: "url-loader"
+                loader: 'url-loader'
             }, {
                 test: /\.(svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                loader: "file-loader"
+                loader: 'file-loader'
             }
         ];
     }

@@ -1,0 +1,32 @@
+<section layout="row" layout-fill layout-align="center">
+    <div flex="90" layout-padding layout="column">
+        <h2>{{ "login.headline" | translate }}</h2>
+        <form ng-submit="ctrl.logUserIn()" name="ctrl.loginForm">
+            <p>{{ "login.welcome" | translate }}</p>
+            <div layout="row">
+                <md-input-container flex>
+                    <label>{{ "form.username" | translate }}</label>
+                    <input ng-model="ctrl.login.username" name="username"/>
+                    <div ng-messages="ctrl.loginForm.username.$error">
+                        <div ng-message="required">{{ "form.required" | translate }}</div>
+                        <div ng-message="incorrectCredentials">Username is Incorrect</div>
+                    </div>
+                </md-input-container>
+            </div>
+
+            <div layout="row">
+                <md-input-container flex>
+                    <label>{{ "form.password" | translate }}</label>
+                    <input ng-model="ctrl.login.password" name="password" type="password"/>
+                    <div ng-messages="ctrl.loginForm.password.$error">
+                    <div ng-message="incorrectPassword">Password is Incorrect</div>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-button class="md-primary md-raised" type="submit">{{"button.submit" | translate}}</md-button>
+            </div>
+        </form>
+        <p>{{ "login.notRegistered" | translate }} <a ui-sref="app.register">{{ "login.registerHere" | translate }}</a></p>
+    </div>
+</section>

@@ -1,0 +1,30 @@
+<section layout="row" layout-fill layout-align="center">
+    <div flex="90" layout-padding layout="column">
+        <h2>{{"register.title" | translate }}</h2>
+        <form ng-submit="ctrl.registerUser()" name="ctrl.registerForm">
+            <p>{{ "register.description" | translate }}</p>
+            <div layout="row">
+                <md-input-container flex>
+                    <label>{{ "form.username" | translate }}</label>
+                    <input required md-no-asterisk name="username" ng-model="ctrl.register.username" />
+                    <div ng-messages="ctrl.registerForm.username.$error">
+                        <div ng-message="required">{{ "form.required" | translate }}</div>
+                        <div ng-message="usernameTaken">This username is already in use</div>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container flex>
+                    <label>{{ "form.password" | translate }}</label>
+                    <input ng-model="ctrl.register.password" required md-no-asterisk name="password" type="password"/>
+                    <div ng-messages="ctrl.registerForm.password.$error">
+                        <div ng-message="required">{{ "form.required" | translate }}</div>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-button class="md-primary md-raised" type="submit">{{"button.submit" | translate}}</md-button>
+            </div>
+        </form>
+    </div>
+</section>

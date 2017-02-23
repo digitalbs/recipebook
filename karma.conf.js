@@ -1,20 +1,20 @@
-var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var _ = require('lodash');
-var argv = require('yargs').argv;
-var webpackSettings = require('./webpack.settings.js');
+'use strict';
 
-var path = require('path'),
-    srcPath = path.join(__dirname, './src'),
-    specPath = path.join(__dirname, './src/app');
-
+let webpack = require('webpack');
+let ExtractTextPlugin = require('extract-text-webpack-plugin');
+let _ = require('lodash');
+let argv = require('yargs').argv;
+let webpackSettings = require('./webpack.settings.js');
+let path = require('path');
+let srcPath = path.join(__dirname, './src');
+let specPath = path.join(__dirname, './src/app');
 
 if (argv.m && argv.f) {
     throw new Error('You cannot use both -m and -f args!');
 }
 
-var testsToRun = specPath + '/index.tests.js';
-var preProcessKey = specPath + '/index.tests.js';
+let testsToRun = specPath + '/index.tests.js';
+let preProcessKey = specPath + '/index.tests.js';
 
 /**
  * Optional Args
@@ -29,7 +29,7 @@ if (argv.m) {
     preProcessKey = argv.f;
 }
 
-var settingsConfig = {
+let settingsConfig = {
     srcPath: srcPath,
     testPath: specPath,
     compact: false
@@ -45,6 +45,9 @@ module.exports = function(config) {
             'node_modules/jasmine-expect/dist/jasmine-matchers.js',
             'node_modules/angular/angular.js',
             'node_modules/angular-mocks/angular-mocks.js',
+        
+        'node_modules/angular-material/angular-material-mocks.js',
+        
             testsToRun
         ],
         reporters: ['progress', 'coverage', 'junit'],

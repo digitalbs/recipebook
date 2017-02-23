@@ -1,4 +1,5 @@
-## README
+#RecipeBook
+Kitchen recipe app.
 
 ### Developer Suite
 * Angular
@@ -33,8 +34,8 @@ npm install -g karma karma-cli webpack webpack-dev-server
 ```
 2. Clone this repo
 ```
-git clone https://github.com/digitalbs/boilerplate-webpack-angular1.5
-cd boilerplate-webpack-angular1.5
+git clone https://github.com/digitalbs/receipeBook
+cd recipeBook
 ```
 3. Install Application Dependencies
 Make sure you ran `nvm 4`

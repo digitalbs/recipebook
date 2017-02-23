@@ -1,6 +1,18 @@
+'use strict';
+
 //Modules
-import '../Home';
+import '../Login';
+import '../Register';
+import '../Admin';
+import '../Header';
+import '../Recipes';
+import '../Common/resources';
 
 export default [
-    'boilerplateApp.home'
+    'rn.login',
+    'rn.register',
+    'rn.admin',
+    'rn.header',
+    'rn.recipes',
+    'rn.common.resources'
 ];

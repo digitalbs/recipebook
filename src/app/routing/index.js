@@ -1,7 +1,15 @@
-import home from './home';
+import app from './app';
+import login from './login';
+import register from './register';
+import recipes from './recipes';
+import admin from './admin';
 
 const routes = [
-    home
+    app,
+    login,
+    register,
+    recipes,
+    admin
 ];
 
 export default function routing($stateProvider) {
