@@ -20,7 +20,7 @@ RegisterCtrl.prototype.registerUser = function () {
 
 
         this.$rootScope.isAuthenticated = true;
-        this.$state.go('app.recipes');
+        this.$state.go('app.recipes', {username: res.username});
 
     }).catch(err => {
         if (err.data.message === 'teamnameTaken') {
